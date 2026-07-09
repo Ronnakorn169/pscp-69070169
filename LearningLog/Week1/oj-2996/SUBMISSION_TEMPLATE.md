@@ -239,7 +239,7 @@ No
 If yes, also complete:
 
 ```text
-ai_reflection.md
+
 ```
 
 If you only asked a friend, TA, or instructor and did not use AI, you do not need to complete `ai_reflection.md`.
