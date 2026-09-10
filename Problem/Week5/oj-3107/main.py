@@ -1,28 +1,21 @@
-"""docstring module"""
-import math
+"""Bonus"""
 def main():
-    """main function"""
-    position , year_service , salary = map(str,input().split())
-    bonus_pos = {"M":1500,"B":1000,"G":500}
-    bonus_percent = {("M",0):.06,
-                     ("M",1):.08,
-                     ("M",2):.1,
-                     ("B",0):.05,
-                     ("B",1):.06,
-                     ("B",2):.07,
-                     ("G",0):.04,
-                     ("G",1):.05,
-                     ("G",2):.06,
-                     }
-    year_service = math.ceil(float(year_service))
-    if year_service < 5:
-        year = 0
-    elif 5 <= year_service <= 10:
-        year = 1
-    else:
-        year = 2
+    """Bonus"""
+    pos, years, salary = input().split()
+    years = int(years)
     salary = float(salary)
-    bonus_per = bonus_percent[(position,year)]
-    bonus_result = salary*bonus_per+bonus_pos[position]
-    print(f"{int(bonus_result)}")
+    fixed = {'M': 1500, 'B': 1000, 'G': 500}
+    rate = {
+        'M': (6, 8, 10),
+        'B': (5, 6, 7),
+        'G': (4, 5, 6)
+    }
+    if years <= 5:
+        pct = rate[pos][0]
+    elif years <= 10:
+        pct = rate[pos][1]
+    else:
+        pct = rate[pos][2]
+    bonus = fixed[pos] + salary * pct / 100
+    print(int(bonus))
 main()
